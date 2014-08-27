@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: codeskool_developmentt
+test:
+  adapter: postgresql
+  database: codeskool_test
+
