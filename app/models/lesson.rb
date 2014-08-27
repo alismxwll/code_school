@@ -2,6 +2,7 @@ class Lesson < ActiveRecord::Base
   validates :name, :presence => true
   validates :content, :presence => true
   validates :lesson_number, :presence => true
+  belongs_to :section
 
   def next
     next_number = self.lesson_number + 1
