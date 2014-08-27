@@ -8,4 +8,10 @@ class Lesson < ActiveRecord::Base
     next_lesson = Lesson.find_by(:lesson_number => next_number)
     next_lesson
   end
+
+  def previous
+    previous_number = self.lesson_number - 1
+    previous_lesson = Lesson.find_by(:lesson_number => previous_number)
+    previous_lesson
+  end
 end
