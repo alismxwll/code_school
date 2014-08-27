@@ -4,7 +4,14 @@
 
 <ul>
   <% ordered_lessons.each do |lesson| %>
-  <li><a href='lessons/<%= lesson.id %>'>"<%= lesson.name %></a></li>
+  <li><%= lesson.lesson_number %>
+    <a href='lessons/<%= lesson.id %>'><%= lesson.name %></a> ||
+    <a href="lessons/<%= lesson.id %>/edit">Edit</a> ||
+    <a href="lessons/<%= lesson.id %>"
+      data-confirm="Are you sure you really want to do that?"
+      data-method="delete"
+      rel="nofollow">DELETE IT</a>
+  </li>
   <% end %>
 </ul>
 
