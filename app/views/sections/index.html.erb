@@ -1,7 +1,20 @@
-<h1>Lessons<h1>
+<h1>Lessons</h1>
 
+<ul>
 <% @sections.each do |section| %>
-  <ul>
-    <%= section.name %>
-  </ul>
-<% end %>
+    <li><%= section.section_number %> **
+    <a href='/sections/<%= section.id %>'><%= section.name %></a> **
+    <a href='/sections/<%= section.id %>/edit'>Edit Section</a> **
+    <a href='/sections/<%= section.id %>'
+      data-confirm = "Are you sure you really want to delete this section?"
+      data-method="delete"
+      rel="nofollow"> GET IT OUT OF HERE</a>
+    </li>
+  <% end %>
+</ul>
+
+
+<p><a href='sections/new'>Add a Section</a></p>
+
+<!-- <p><a href='lessons/new'>Add a lesson</a></p>
+ -->
