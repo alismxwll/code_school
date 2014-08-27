@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    section = Section.find(params[:section_id])
+    @lessons = section.lessons.new
     render('lessons/index.html.erb')
   end
 
