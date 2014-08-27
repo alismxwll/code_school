@@ -18,4 +18,14 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(params[:lesson])
     @lesson.save ? redirect_to("/lessons/#{@lesson.id}") : render('lessons/new.html.erb')
   end
+
+  def edit
+    @lesson = Lesson.find(params[:id])
+    render('lessons/edit.html.erb')
+  end
+
+  def update
+    @lesson = Lesson.find(params[:id])
+    @lesson.update(params[:lesson]) ? redirect_to("/lessons/#{@lesson.id}") : render('lessons/edit.html.erb')
+  end
 end

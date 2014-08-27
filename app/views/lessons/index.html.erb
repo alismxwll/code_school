@@ -1,7 +1,11 @@
 <h1>Lessons</h1>
 
+<% ordered_lessons = @lessons.sort_by{|lesson| lesson.lesson_number} %>
+
 <ul>
-  <% @lessons.each do |lesson| %>
-  <li><% lesson.name %></li>
+  <% ordered_lessons.each do |lesson| %>
+  <li><a href='lessons/<%= lesson.id %>'>"<%= lesson.name %></a></li>
   <% end %>
 </ul>
+
+<p><a href='lessons/new'>Add a lesson</a></p>
