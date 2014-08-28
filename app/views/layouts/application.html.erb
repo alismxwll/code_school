@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <div class="container">
-<%= yield(:nav) %>
+  <div class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Sections</a></li>
+      <li><a href="/lessons/">Lessons</a></li>
+    </ul>
+  </div>
 </div>
 <body>
 
