@@ -1,3 +1,10 @@
+<% content_for(:title, 'All Lessons') %>
+
+<% content_for(:navbar) do %>
+<li><a href="/">Sections</a></li>
+<li><a href="/lessons/">Lessons</a></li>
+<% end %>
+
 <h1>Lessons</h1>
 
 <% ordered_lessons = @lessons.sort_by{|lesson| lesson.lesson_number} %>
@@ -16,4 +23,3 @@
 </ul>
 
 <p><a href='/lessons/new'>Add a lesson</a></p>
-<p><a href='/sections/'>Home</a></p>

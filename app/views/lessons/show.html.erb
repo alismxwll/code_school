@@ -1,3 +1,10 @@
+<% content_for(:title, 'Show Lessons') %>
+
+<% content_for(:navbar) do %>
+<li><a href="/">Sections</a></li>
+<li><a href="/lessons/">Lessons</a></li>
+<% end %>
+
 <h1><%= @lesson.name %></h1>
 
 <p><%= @lesson.lesson_number %></p>
@@ -16,4 +23,3 @@
   <% end %>
 
 <p><a href='/lessons/<%= @lesson.id %>/edit'>Edit Lesson</a></p>
-<p><a href='/sections'>Return to Home</a></p>

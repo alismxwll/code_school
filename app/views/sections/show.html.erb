@@ -1,7 +1,12 @@
+<% content_for(:title, 'Show Sections') %>
+
+<% content_for(:navbar) do %>
+<li><a href="/">Sections</a></li>
+<li><a href="/lessons/">Lessons</a></li>
+<% end %>
+
 <h1><%= @section.name %></h1>
 
 <p><%= @section.section_number %></p>
 
 <p><a href='/lessons/new'>New lesson</a></p>
-
-<p><a href="/sections">Return to Section Home</a></p>
