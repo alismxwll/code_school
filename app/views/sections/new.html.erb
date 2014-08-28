@@ -1,9 +1,10 @@
 <% content_for(:title, 'New Sections') %>
 
-<% content_for(:navbar) do %>
-<li><a href="/">Sections</a></li>
-<li><a href="/lessons/">Lessons</a></li>
+<% content_for(:nav) do %>
+<a href="/">Sections</a>
+<a href="/lessons/">Lessons</a>
 <% end %>
+
 
 <h1>Create a New Section</h1>
 
@@ -12,5 +13,5 @@
 
 <form action="/sections" method="post">
   <%= render('form_sections') %>
-  <p><button>Add Section</button>
+  <p><button class="btn btn-warning">Add Section</button>
 <form>
