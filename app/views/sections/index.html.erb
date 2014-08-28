@@ -1,15 +1,31 @@
 <h1>Sections</h1>
 
 <ul>
-<% @sections.each do |section| %>
+  <% @sections.each do |section| %>
     <li><%= section.section_number %> **
-    <a href='/sections/<%= section.id %>'><%= section.name %></a> **
-    <a href='/sections/<%= section.id %>/edit'>Edit Section</a> **
-    <a href='/sections/<%= section.id %>'
-      data-confirm = "Are you sure you really want to delete this section?"
-      data-method="delete"
-      rel="nofollow"> GET IT OUT OF HERE</a>
+      <a href='/sections/<%= section.id %>'><%= section.name %></a> **
+      <a href='/sections/<%= section.id %>/edit'>Edit Section</a> **
+      <a href='/sections/<%= section.id %>'
+        data-confirm = "Are you sure you really want to delete this section?"
+        data-method="delete"
+        rel="nofollow"> Delete this section</a>
     </li>
+
+      <ul>
+        <% @lessons.each do |lesson| %>
+          <% if lesson.section_number == section.section_number %>
+            <li><%= lesson.section_number %> **
+            <a href='/lessons/<%= lesson.id %>'><%= lesson.name %></a> **
+            <a href='/lessons/<%= lesson.id %>/edit'>Edit lesson</a> **
+            <a href='/lessons/<%= lesson.id %>'
+              data-confirm = "Are you sure you really want to delete this lesson?"
+              data-method="delete"
+              rel="nofollow"> Delete this lesson</a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    <p></p>
   <% end %>
 </ul>
 

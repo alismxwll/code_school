@@ -34,6 +34,6 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to("/lessons")
+    redirect_to("/sections")
   end
 end

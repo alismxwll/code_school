@@ -18,7 +18,9 @@
   <p></p>
   <label for='section_num'>Section Number</label>
   <select id='section_num' name='lesson[section_number]'>
-    <option value='1'>Section 1</option>
+    <% @sections.each do |section| %>
+      <option value='<%= section.section_number %>'>Section <%= section.section_number %></option>
+    <% end %>
   </select>
   <p></p>
   <label for="lesson_content">Lesson Content</label>
