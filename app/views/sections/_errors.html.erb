@@ -1,0 +1,8 @@
+<% if @section.errors.any? %>
+  <h3>These are your errors. FIX THEM!</h3>
+  <ul>
+    <% @section.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

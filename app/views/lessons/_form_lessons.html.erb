@@ -1,0 +1,19 @@
+  <label for="lesson_name">Lesson Name</label>
+  <input id="lesson_name" name="lesson[name]" type="text">
+  <br>
+  <label for='lesson_num'>Lesson Number</label>
+  <input id='lesson_num' name='lesson[lesson_number]' type='text'>
+  <br>
+  <label for='section_num'>Section Number</label>
+  <select id='section_num' name='lesson[section_number]'>
+    <% @sections.each do |section| %>
+      <option value='<%= section.section_number %>'>Section <%= section.section_number %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="lesson_content">Lesson Content</label>
+  <p><textarea id="lesson_content" name="lesson[content]" rows="20" cols="50" placeholder="Write Content Here"></textarea>
+  <br>
+  <label for="lesson_published">Publish this lesson: </label>
+  <input id="lesson_published" type="checkbox" name="lesson[published]" value="t">
+  <p><button>Add Lesson and Content</button>

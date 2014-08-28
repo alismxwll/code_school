@@ -7,19 +7,10 @@
 
 <h1>Create a New Section</h1>
 
-<% if @section.errors.any? %>
-  <h3>These are your errors. FIX THEM!</h3>
-  <ul>
-    <% @section.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render('errors') %>
+
 
 <form action="/sections" method="post">
-  <label for="section_name">Section Name</label>
-  <input id="section_name" name="section[name]" type="text">
-  <label for="section_number">Section Number</label>
-  <input id="section_number" name="section[section_number]" type="text">
+  <%= render('form_sections') %>
   <p><button>Add Section</button>
 <form>

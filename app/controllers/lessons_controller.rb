@@ -26,6 +26,7 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    @sections = Section.all
     @lesson = Lesson.unscoped.find(params[:id])
     render('lessons/edit.html.erb')
   end

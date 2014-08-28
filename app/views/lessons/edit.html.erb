@@ -7,27 +7,9 @@
 
 <h1>Edit <%= @lesson.name %></h1>
 
-<% if @lesson.errors.any? %>
-  <h3>These are your errors. FIX THEM!</h3>
-  <ul>
-    <% @lesson.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render('errors') %>
 
 <form action="/lessons/<%= @lesson.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
-  <label for="lesson_name">Lesson Name</label>
-  <input id="lesson_name" name="lesson[name]" type="text" value="<%= @lesson.name %>">
-  <br>
-  <label for='lesson_num'>Lesson Number</label>
-  <input id='lesson_num' name='lesson[lesson_number]' type='text' value="<%= @lesson.lesson_number %>">
-  <br>
-  <label for="lesson_content">Lesson Content</label>
-  <p><textarea id="lesson_content" name="lesson[content]" rows="20" cols="50" type="text"><%= @lesson.content %></textarea>
-  <br>
-  <label for="lesson_published">Publish this lesson: </label>
-  <input id="lesson_published" type="checkbox" name="lesson[published]" value="t">
-  <p><button>Add Lesson and Content</button>
-<form>
+  <%= render('form_lessons') %>
+</form>
