@@ -17,7 +17,12 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.create(params[:lesson])
-    @lesson.save ? redirect_to("/lessons/#{@lesson.id}") : render('lessons/new.html.erb')
+    if @lesson.save
+      flash[:notice] = "Your lesson has been added."
+      redirect_to("/lessons/#{@lesson.id}")
+    else
+      render('lessons/new.html.erb')
+    end
   end
 
   def edit
@@ -27,12 +32,18 @@ class LessonsController < ApplicationController
 
   def update
     @lesson = Lesson.unscoped.find(params[:id])
-    @lesson.update(params[:lesson]) ? redirect_to("/lessons/#{@lesson.id}") : render('lessons/edit.html.erb')
+    if @lesson.update(params[:lesson])
+      flash[:notice] = "Your lesson has been updated."
+      redirect_to("/lessons/#{@lesson.id}")
+    else
+      render('lessons/edit.html.erb')
+    end
   end
 
   def destroy
     @lesson = Lesson.unscoped.find(params[:id])
     @lesson.destroy
+    flash[:notice] = "Your lesson has been deleted."
     redirect_to("/sections")
   end
 end

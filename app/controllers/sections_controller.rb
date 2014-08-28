@@ -11,7 +11,12 @@ class SectionsController < ApplicationController
 
   def create
     @section = Section.create(params[:section])
-    @section.save ? redirect_to("/sections/#{@section.id}") : render('sections/new.html.erb')
+    if @section.save
+      flash[:notice] = "Your section has been added."
+      redirect_to("/sections/#{@section.id}")
+    else
+      render('sections/new.html.erb')
+    end
   end
 
   def show
@@ -26,12 +31,18 @@ class SectionsController < ApplicationController
 
   def update
     @section = Section.find(params[:id])
-    @section.update(params[:section]) ? redirect_to("/sections/#{@section.id}") : render('sections/edit.html.erb')
+    if @section.update(params[:section])
+      flash[:notice] = "Your section has been updated."
+      redirect_to("/sections/#{@section.id}")
+    else
+      render('sections/edit.html.erb')
+    end
   end
 
   def destroy
     @section = Section.find(params[:id])
     @section.destroy
+    flash[:notice] = "Your section has been deleted."
     redirect_to("/sections")
   end
 end

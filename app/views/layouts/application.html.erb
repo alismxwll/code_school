@@ -9,6 +9,8 @@
 <%= yield(:navbar) %>
 <body>
 
+<%= flash[:alert] %>
+<%= flash[:notice] %>
 <%= yield %>
 
 </body>
