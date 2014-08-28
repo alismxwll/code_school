@@ -11,13 +11,15 @@ class LessonsController < ApplicationController
   end
 
   def new
-    @lesson = Lesson.new
+    section = Section.find(params[:section_id])
+    @lesson = section.lessons.new
     render('lessons/new.html.erb')
   end
 
   def create
-    @lesson = Lesson.new(params[:lesson])
-    @lesson.save ? redirect_to("/lessons/#{@lesson.id}") : render('lessons/new.html.erb')
+    section = Section.find(params[:section_id])
+    @lesson = section.lessons.new(params[:lesson])
+    @lesson.save ? redirect_to("/sections/#{@lesson.section_id}/lessons/#{@lesson.id}") : render('lessons/new.html.erb')
   end
 
   def edit

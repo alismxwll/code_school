@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<form action="/sections/<% @lesson.section.id %>/lessons" method="post">
+<form action="/sections/<%= @lesson.section.id %>/lessons" method="post">
   <label for="lesson_name">Lesson Name</label>
   <input id="lesson_name" name="lesson[name]" type="text">
   <label for='lesson_num'>Lesson Number</label>
