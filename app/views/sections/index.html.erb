@@ -14,7 +14,7 @@
       <ul>
         <% @lessons.each do |lesson| %>
           <% if lesson.section_number == section.section_number %>
-            <li><%= lesson.section_number %> **
+            <li><%= lesson.lesson_number %> **
             <a href='/lessons/<%= lesson.id %>'><%= lesson.name %></a> **
             <a href='/lessons/<%= lesson.id %>/edit'>Edit lesson</a> **
             <a href='/lessons/<%= lesson.id %>'
@@ -29,8 +29,8 @@
   <% end %>
 </ul>
 
-
+<p><a href='/lessons/'>See all Lessons</a></p>
 <p><a href='/sections/new'>Add a Section</a></p>
-
+<p><a href='/lessons/new'>Add a Lesson</a></p>
 <!-- <p><a href='lessons/new'>Add a lesson</a></p>
  -->

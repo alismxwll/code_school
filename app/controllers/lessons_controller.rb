@@ -1,12 +1,11 @@
 class LessonsController < ApplicationController
   def index
-    section = Section.find(params[:section_id])
-    @lessons = section.lessons.new
+    @lessons = Lesson.unscoped.order(lesson_number: :asc)
     render('lessons/index.html.erb')
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.unscoped.find(params[:id])
     render('lessons/show.html.erb')
   end
 
@@ -22,17 +21,17 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.unscoped.find(params[:id])
     render('lessons/edit.html.erb')
   end
 
   def update
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.unscoped.find(params[:id])
     @lesson.update(params[:lesson]) ? redirect_to("/lessons/#{@lesson.id}") : render('lessons/edit.html.erb')
   end
 
   def destroy
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.unscoped.find(params[:id])
     @lesson.destroy
     redirect_to("/sections")
   end
